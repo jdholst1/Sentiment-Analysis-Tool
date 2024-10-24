@@ -1,0 +1,108 @@
+
+``` {python}
+import tweepy
+import pandas as pd
+
+#Authentication portion, insert credentials here
+consumer_key = "Blank"
+consumer_secret = "Blank"
+access_token = "Blank"
+access_token_secret = "Blank"
+
+auth = tweepy.OAuth1UserHandler(
+    consumer_key, consumer_secret, access_token, access_token_secret
+)
+
+
+#Get the api object
+api = tweepy.API(auth, wait_on_rate_limit=True)
+```
+
+```{python}
+search_query = "'debate' '2024'-filter:retweets AND -filter:replies AND -filter:links"
+num_of_tweets = 100
+
+try:
+    #The number of tweets we got from the search
+    tweets = api.search_tweets(q=search_query, lang="en", count=num_of_tweets, tweet_mode = "extended")
+
+    #Pulling some attributes from the tweet
+    attributes_container = [[tweet.user.name, tweet.created_at, tweet.favorite_count, tweet.source, tweet.full_text] for tweet in tweets]
+
+    #Creation of column list to rename the columns in the dataframe
+    columns = ["User", "Date Created", "Number of Likes", "Source of Tweet", "Tweet"]
+
+    #Creation of dataframe
+    tweets_df = pd.DataFrame(attributes_container, columns=columns)
+
+except BaseException as e:
+    print("Status failed on ", str(e))
+```
+
+```{python}
+tweets_df
+```
+```{python}
+tweets[0]
+```
+
+
+
+
+
+```{python}
+from twikit import Client, TooManyRequests
+from configparser import ConfigParser
+from datetime import datetime
+from random import randint
+import time
+import csv
+
+
+MINIMUM_TWEETS = 10
+QUERY = "chatgpt"
+
+#* login credentials
+config = ConfigParser()
+config.read("config.ini")
+username = config["X"]["username"]
+password = config["X"]["password"]
+email = config["X"]["email"]
+
+#*authenticate to X.com
+client = Client(language="en-US")
+# client.login(auth_info_1=username, auth_info_2 = email, password=password)
+# client.save_cookies("cookies.json")
+
+client.load_cookies("cookies.json")
+
+
+#* get Tweets
+# tweets = client.search_tweet(QUERY, product="Top")
+
+tweet_count = 0
+tweets = None
+
+
+while tweet_count < MINIMUM_TWEETS:
+    if tweets is None:
+        #Get tweets
+        print(f"{datetime.now()}- Getting tweets...")
+        tweets = client.search_tweet(QUERY, product="Top")
+
+    else:
+        print(f"{datetime.now()}- Getting more tweets...")
+        tweets = tweets.next()
+
+    if not tweets:
+        print(f"{datetime.now()}- No more tweets found.")
+        break
+
+    for tweet in tweets:
+        tweet_count += 1
+        tweet_data = [tweet_count, tweet.user.name, tweet.text, tweet.created_at, tweet.retweet_count, tweet.favorite_count]
+        print(tweet_data)
+        break
+
+print(f"{datetime.now()} - Success! Found {tweet_count} tweets.")
+```
