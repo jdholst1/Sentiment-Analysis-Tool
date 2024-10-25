@@ -1,9 +1,4 @@
-# Public Sentiment Analysis Tool
-This project is designed to gather data on public sentiment for or against an idea and summarize the results.
+# Sentiment Analysis Tool
+This application features a machine learning model that takes a prompt and gives an assessment of the sentiment analysis. That will start with a score of positivity vs. negativity. As progress goes on, I hope to implement the feature to report on most-used words, and ideally also the words or phrases that carried the most weight in deciding those numbers. Visualizations may also later include charts made around these metrics.
 
-The idea is to collect data from big social media platforms such as Facebook or YouTube through use of APIs.
-Then, clean up and sort the data; which is a process I'll figure out when I see what format the data arrives in.
-Next is to process the data with a custom-made RNN.
-The results will then be displayed. The format this will take will depend on the data. For instance, if it works out best to report the most common words in describing a topic, then charts would make for good visualization. The more time I have left at the end, the more user-friendly interface I could implement.
-
-It is currently a work in progress that I plan to have finished in roughly 14 weeks.
+The initial idea was to gather the data from social media platforms like X or Facebook using either web-scraping or APIs, based on a search prompt. Most if not all of the platforms have a dark gray area for accessing data legitimately through web-scraping, and API token accessibility is a different process each time, with its own limitations each time, so that aspect of the projet has taken the back-burner and is now a nice-to-have feature if I can figure something out.
