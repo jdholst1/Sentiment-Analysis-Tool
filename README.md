@@ -5,5 +5,5 @@ The initial idea was to gather the data from social media platforms like X or Fa
 
 To run the frontend, go to the frontend directory in a terminal and run "npm start".
 For the backend, go to its respective directory and type "python app.py".
-=======
+
 
