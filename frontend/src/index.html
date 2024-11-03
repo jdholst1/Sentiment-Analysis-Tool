@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Tool</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!-- <script type="module" src="renderer.js"></script> -->
+    <style>
+        .sidenav {
+            position: fixed;
+            height: 100%;
+            width: 250px; /* Adjust width */
+            background-color: #585563;;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-light">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <a href="index.html">
+                <img class="logo" src="images/databookslogo.png" alt="Data Books logo" height="50">
+            </a>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <div id="mySidenav" class="sidenav">
+        <div>
+            <a href="index.html" id="homeButton" class="btn btn-link text-white">Home</a>
+            <a href="data.html" id="dataButton" class="btn btn-link text-white">Data</a>
+            <a href="projects.html" id="projectsButton" class="btn btn-link text-white">My Projects</a>
+            <a href="about.html" class="btn btn-link text-white">About</a>
+        
+        </div>        
+        <div class="button-box">
+            <button id="backButton" class="btn btn-secondary btn-block">Back</button>
+            <button id="forwardButton" class="btn btn-secondary btn-block">Forward</button>
+        </div>
+    </div>
+
+    <div id="main-content" class="main" style="margin-left: 250px;">
+        <input placeholder="text">
+        <button id="submitButton" class="btn btn-primary">Submit</button>
+    </div>
+
+    <!-- <footer class="footer text-center">
+        <div class="container">
+            <p> Sentiment Analysis Tool &copy; 2024 - Jacob Holst</p>
+        </div>
+    </footer> -->
+
+    <!-- Bootstrap JS and dependencies (optional) -->
+     <script href="predict.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+</body>
+</html>

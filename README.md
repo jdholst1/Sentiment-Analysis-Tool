@@ -6,4 +6,6 @@ Then, clean up and sort the data; which is a process I'll figure out when I see 
 Next is to process the data with a custom-made RNN.
 The results will then be displayed. The format this will take will depend on the data. For instance, if it works out best to report the most common words in describing a topic, then charts would make for good visualization. The more time I have left at the end, the more user-friendly interface I could implement.
 
-It is currently a work in progress that I plan to have finished in roughly 14 weeks.
+
+To run the frontend, go to the frontend directory in a terminal and run "npm start".
+For the backend, go to its respective directory and type "python app.py".
