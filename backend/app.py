@@ -3,6 +3,7 @@ from flask_cors import CORS
 import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+import pickle
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -11,8 +12,11 @@ CORS(app)  # Enable CORS for all routes
 model = tf.keras.models.load_model('SAM.keras')
 
 # Tokenizer for predictions
-tokenizer = Tokenizer(num_words=10000)
-# tokenizer.fit_on_tests("test.txt")      #This might be unnecessary
+# tokenizer = Tokenizer(num_words=10000)
+# tokenizer.fit_on_tests("test.txt")
+with open("tokenizer.pkl", "rb") as f:
+    tokenizer = pickle.load(f)
+
 
 
 # Example ML model prediction function
@@ -29,11 +33,13 @@ def predict(text, tokenizer):
 @app.route('/api/predict', methods=['POST'])
 def predict_route():
     data = request.json
-    prediction = predict(data)
+    if isinstance(data, dict) and 'text' in data:
+        texts = [data['text']]  # Ensure input is a list of text strings
+    else:
+        return jsonify({"error": "Invalid input"}), 400
+    prediction = predict(data, tokenizer)
     return jsonify(prediction)
 
 
 if __name__ == '__main__':
-    result = predict("Oh my goodness, this is awful!", tokenizer)
-    print(result)
-    # app.run(debug=True)
+    app.run(debug=True)
