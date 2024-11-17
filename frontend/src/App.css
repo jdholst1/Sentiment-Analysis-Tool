@@ -71,3 +71,38 @@
     transform: rotate(360deg);
   }
 }
+
+.result-box {
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Fade-in effect */
+}
+
+.result-box.show {
+  opacity: 1;
+}
+
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+  height: 100%;
+  border-radius: 5px;
+}
+
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #ffcccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

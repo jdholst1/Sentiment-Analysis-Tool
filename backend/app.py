@@ -12,24 +12,21 @@ CORS(app)  # Enable CORS for all routes
 model = tf.keras.models.load_model('SAM.keras')
 
 # Tokenizer for predictions
-# tokenizer = Tokenizer(num_words=10000)
-# tokenizer.fit_on_tests("test.txt")
 with open("tokenizer.pkl", "rb") as f:
     tokenizer = pickle.load(f)
 
-
-
-# Example ML model prediction function
+# Prediction function
+# Print statements are all for debug
 def predict(text, tokenizer):
+    text = [text["text"]]
     print(text)
-    text = text["text"]
     new_texts_seq = tokenizer.texts_to_sequences(text)
-    print("Tokenized sequence:", new_texts_seq)  # Print tokenized sequence
+    print("Tokenized sequence:", new_texts_seq)
     new_texts_pad = pad_sequences(new_texts_seq, maxlen=100)
-    print("Padded sequence:", new_texts_pad)  # Print padded sequence
+    # print("Padded sequence:", new_texts_pad)
 
     predictions = model.predict(new_texts_pad)
-    print("Predictions (probabilities):", predictions)  # Log the raw predictions
+    # print("Predictions (probabilities):", predictions)  # Log the raw predictions
 
     # Debug for the tokenizer's vocabulary or the model summary
     # print("Tokenizer word index:", tokenizer.word_index)
