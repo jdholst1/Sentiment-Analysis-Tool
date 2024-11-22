@@ -9,8 +9,8 @@ function MainContent() {
                     value={input} 
                     onChange={(e) => setInput(e.target.value)} 
                     placeholder="Enter your input"
-                    rows="4"          // Optional: Controls the height (number of lines visible)
-                    cols="50"         // Optional: Controls the width (number of characters visible)
+                    rows="4"
+                    cols="50"
                     style={{ width: '100%', fontSize: '16px', padding: '10px' }} // Optional: Custom styles
                 />
                 <button type="submit">Predict</button>

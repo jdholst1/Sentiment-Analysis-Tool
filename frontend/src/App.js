@@ -9,6 +9,9 @@ function App() {
     const [result, setResult] = useState(null);
     const [loading, setLoading] = useState(false);
     const [showResult, setShowResult] = useState(false);
+    const [mostCommonWord, setMostCommonWord] = useState(null);
+    const [wordCount, setWordCount] = useState(null);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,6 +20,8 @@ function App() {
         try {
             const response = await axios.post('http://localhost:5000/api/predict', { text: input });
             setResult(response.data.prediction);
+            setMostCommonWord(response.data.most_common_word);
+            setWordCount(response.data.most_common_count);
             setShowResult(true); // Trigger fade-in animation
         } catch (error) {
             console.error('Error making request:', error);
@@ -88,6 +93,13 @@ function App() {
                         ) : (
                             <p style={{ color: 'gray' }}>😐 Neutral Sentiment</p>
                         )}
+                    </div>
+                )}
+
+                {mostCommonWord && (
+                    <div style={{marginTop: "40px"}}>
+                        <p><strong>Most Common Word:</strong> {mostCommonWord}</p>
+                        <p><strong>Count:</strong> {wordCount}</p>
                     </div>
                 )}
 
