@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/jdholst1/Sentiment-Analysis-Tool/static/css/main.27a0e8ab.css",
-    "main.js": "/jdholst1/Sentiment-Analysis-Tool/static/js/main.c941e32a.js",
-    "static/js/453.8ab44547.chunk.js": "/jdholst1/Sentiment-Analysis-Tool/static/js/453.8ab44547.chunk.js",
-    "index.html": "/jdholst1/Sentiment-Analysis-Tool/index.html",
-    "main.27a0e8ab.css.map": "/jdholst1/Sentiment-Analysis-Tool/static/css/main.27a0e8ab.css.map",
-    "main.c941e32a.js.map": "/jdholst1/Sentiment-Analysis-Tool/static/js/main.c941e32a.js.map",
-    "453.8ab44547.chunk.js.map": "/jdholst1/Sentiment-Analysis-Tool/static/js/453.8ab44547.chunk.js.map"
+    "main.css": "/Sentiment-Analysis-Tool/static/css/main.27a0e8ab.css",
+    "main.js": "/Sentiment-Analysis-Tool/static/js/main.2f59b126.js",
+    "static/js/453.8ab44547.chunk.js": "/Sentiment-Analysis-Tool/static/js/453.8ab44547.chunk.js",
+    "index.html": "/Sentiment-Analysis-Tool/index.html",
+    "main.27a0e8ab.css.map": "/Sentiment-Analysis-Tool/static/css/main.27a0e8ab.css.map",
+    "main.2f59b126.js.map": "/Sentiment-Analysis-Tool/static/js/main.2f59b126.js.map",
+    "453.8ab44547.chunk.js.map": "/Sentiment-Analysis-Tool/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.27a0e8ab.css",
-    "static/js/main.c941e32a.js"
+    "static/js/main.2f59b126.js"
   ]
 }
