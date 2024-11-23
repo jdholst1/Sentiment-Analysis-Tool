@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "homepage": "https://github.com/jdholst1/Sentiment-Analysis-Tool",
+  "homepage": "https://jdholst1.github.io/Sentiment-Analysis-Tool",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
