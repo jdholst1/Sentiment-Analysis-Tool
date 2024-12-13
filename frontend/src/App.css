@@ -1,5 +1,7 @@
 :root{
   /*Color Palette*/
+  --light1: #E0E0E0;
+  --light2: #DDDDDD;
   --mid1: #CEB992;
   --mid2: #73937E;
   --dark1: #585563;
@@ -7,22 +9,41 @@
   --dark3: #471323;
 }
 
-.btn {
-  display: block;
+.dark-mode {
+  --mid1: #B0A898; /* Light colors for dark mode */
+  --mid2: #A1C6B5;
+  --dark1: #1F1F1F;
+  --dark2: #121212;
+  --dark3: #0A0A0A;
+}
+
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+.App-header {
+  background-color: var(--mid2) !important;
+  /* position:fixed; */
+  color: white;
 }
 
 .sidenav {
-  position: fixed;
-  height: 100%;
-  width: 250px; /* Adjust width */
-  background-color: #585563;;
+  position:fixed;
+  /* height: 100vh; */
+  min-height: 100vb;
+  /* display:block; */
+  width: 250px;
+  background-color: var(--dark1);
   padding-top: 20px;
 }
 
-/* .input{
-  padding:200px;
-  display: inline;
-} */
+.btn {
+  display: block;
+  background-color: var(--dark1) !important;
+  border-color: var(--dark1);
+  color: white;
+}
 
 #submitButton{
   display: inline;
@@ -46,17 +67,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: var(--dark2);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -96,6 +106,37 @@
   border-radius: 5px;
 }
 
+.dark-mode .App-header {
+  background-color: var(--dark1);
+}
+
+.dark-mode .sidenav {
+  background-color: var(--dark1);
+}
+
+.dark-mode .App-link {
+  color: var(--mid1);
+}
+
+.dark-mode .main,
+.dark-mode html{
+  background-color: #0A0A0A;
+}
+
+.dark-mode .result-box.show,
+.dark-mode textarea {
+  background-color: var(--dark1) !important;
+}
+
+.dark-mode .button {
+  background-color: var(--dark1) !important;
+  border-color: var(--dark1);
+}
+
+.dark-mode h1,
+.dark-mode p {
+  color: var(--light1);
+}
 
 .error-message {
   color: red;

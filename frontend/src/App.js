@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import Header from './Header';
@@ -11,6 +11,7 @@ function App() {
     const [showResult, setShowResult] = useState(false);
     const [mostCommonWord, setMostCommonWord] = useState(null);
     const [wordCount, setWordCount] = useState(null);
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
 
     const handleSubmit = async (e) => {
@@ -39,9 +40,22 @@ function App() {
         return { color: 'gray', fontWeight: 'bold' };
     };
 
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+    }
+
+    // Apply the dark-mode class to the <html> tag when isDarkMode changes
+    useEffect(() => {
+        if (isDarkMode) {
+        document.documentElement.classList.add("dark-mode"); // Adds dark mode to <html>
+        } else {
+        document.documentElement.classList.remove("dark-mode"); // Removes dark mode from <html>
+        }
+    }, [isDarkMode]);
+
     return (
-        <div>
-            <Header />
+        <div className={isDarkMode ? "dark-mode": "light-mode"}>
+            <Header toggleDarkMode={toggleDarkMode} />
             <Sidenav />
             <div id="main-content" className="main" style={{ marginLeft: '250px' }}>
                 <h1>Sentiment Analysis</h1>
